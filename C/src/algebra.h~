@@ -1,0 +1,3 @@
+#define POSITIVE_SIGN '+'
+#define NEGATIVE_SIGN '-'
+

@@ -1,0 +1,49 @@
+#include <string.h>
+#include <stdlib.h>
+#include "string_operations.h"
+
+char *sub_string(char *src, const unsigned int begin_index, const unsigned int end_index, char *dest)
+{
+
+  /*
+   * If begin_index is equal to end_index, we only need to return a char.
+   */
+  if(begin_index == end_index) {
+    dest = src[begin_index]; // or end_index
+    return dest;
+  } 
+  
+  /*
+   * If the addition of begin_index and end_index equals the length of src,
+   * the substring doesn't exist.
+   */
+  if((begin_index + end_index) == strlen(src)) {
+    dest = NULL;
+    return dest;
+  }
+
+  /*
+   * Some memory for the string.
+   */
+  dest = malloc(sizeof(begin_index + end_index));
+
+  if(begin_index > end_index)
+    strncpy(dest, src + begin_index, end_index);
+  else if(end_index > begin_index)
+    strncpy(dest, src + end_index, begin_index);
+
+  return dest;
+}
+
+int exists_x_char(char *str, const char x)
+{
+  int times = 0;
+  int i = 0;
+  const int len = strlen(str);
+  for(i = 0; i < len; i++) {
+    if(str[i] == x)
+      times++;
+  }
+  return times;
+}
+

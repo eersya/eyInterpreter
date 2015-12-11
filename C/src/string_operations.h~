@@ -1,0 +1,5 @@
+
+
+extern char *substring(char *src, int begin_index, int end_index, char *dest);
+
+extern int exists_x_char(char *src, const char x);

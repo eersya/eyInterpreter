@@ -3,15 +3,14 @@ package mx.eersya.algebra.equation;
 import java.util.ArrayList;
 
 import mx.eersya.algebra.Algebra;
+import static mx.eersya.util.EyString.LEFT_PARENTHESES;
+import static mx.eersya.util.EyString.RIGHT_PARENTHESES;
 
 /**
  *@author eersya
  */
 
-public final class Expression extends Object{
-    
-    public static final char LEFT_PARENTHESES = '(';
-    public static final char RIGHT_PARENTHESES = ')';
+public class Expression extends Object {
 	
     protected ArrayList<Term> terms;
     private ArrayList<ParenthesesExpression> parenthesesExpressions;
@@ -138,7 +137,7 @@ public final class Expression extends Object{
         for(int cur = 0; cur < terms.size(); cur++) {
             for(int curTerm = 0; curTerm < terms.size(); curTerm++) {
                 
-                if(!Expression.isThereConcurrenceInVars(this))
+                if(!this.isThereConcurrenceInVars())
                     break;
 				
                 if(cur != curTerm && terms.get(cur).getVariable().equals(terms.get(curTerm).getVariable())) {
@@ -156,12 +155,11 @@ public final class Expression extends Object{
 	
     /**
      * Returns true if there is any concurrence in variables.
-     * @param expression
      * @return 
      */
-    public static boolean isThereConcurrenceInVars(Expression expression) {
-        for (Term term : expression.getTerms()) {
-            for (Term curTerm : expression.getTerms()) {
+    public boolean isThereConcurrenceInVars() {
+        for (Term term : getTerms()) {
+            for (Term curTerm : getTerms()) {
                 if(!term.equals(curTerm) && term.getVariable().equals(curTerm.getVariable()))
                     return true;
             }

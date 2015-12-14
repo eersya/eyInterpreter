@@ -11,6 +11,9 @@ package mx.eersya.util;
  */
 public class EyString {
     
+    public static final char LEFT_PARENTHESES = '(';
+    public static final char RIGHT_PARENTHESES = ')';
+    
     public static int indexOf(String str, char ch, int time) {
         
         if (time >= str.length())

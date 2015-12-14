@@ -4,16 +4,12 @@ package mx.eersya.algebra.equation;
  *@author eersya
  */
 
-public class ParenthesesExpression extends mx.eersya.algebra.equation.Expression {
+public class ParenthesesExpression extends Expression{
     
-    /**
-     * 
-     * @param expresion 
-     */
-    public ParenthesesExpression(String expresion) {
-	super(expresion, true);
-        readTerms(expresion);
+    public ParenthesesExpression(String expression) {
+        super(expression);
     }
+    
     
     
 
